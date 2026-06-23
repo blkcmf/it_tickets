@@ -1,12 +1,12 @@
 <?php
 
-// Hash password the same way everywhere (md5 like school project)
+// Hash password 
 function hashPassword($pass)
 {
     return md5($pass);
 }
 
-// Check password: works with md5 in DB or old plain text passwords
+// Check password
 function verifyPassword($inputPass, $storedPass)
 {
     if (hashPassword($inputPass) == $storedPass) {
@@ -18,7 +18,7 @@ function verifyPassword($inputPass, $storedPass)
     return false;
 }
 
-// If password was stored as plain text, upgrade it to md5
+// If password stored plain text, upgrade it to md5
 function upgradePassword($connection, $email, $inputPass)
 {
     $hash = hashPassword($inputPass);
@@ -37,7 +37,7 @@ function workStatusLabel($status)
     }
 }
 
-// Find a free IT staff member (not busy)
+// Find a free IT staff member 
 function findFreeIT($connection)
 {
     $query = "SELECT email FROM users WHERE role='IT' AND is_busy=0 ORDER BY RAND() LIMIT 1";
@@ -49,7 +49,7 @@ function findFreeIT($connection)
     return null;
 }
 
-// Assign a ticket to an IT staff member and mark them busy
+// Assign a ticket to an IT staff member and mark them is_busy=1
 function assignTicket($connection, $ticketId, $itEmail)
 {
     $query = "UPDATE tickets SET status='assigned', assigned_to='$itEmail', work_status='not_started' WHERE id=$ticketId";
@@ -59,7 +59,7 @@ function assignTicket($connection, $ticketId, $itEmail)
     mysqli_query($connection, $query);
 }
 
-// Try to assign a new ticket to a free IT staff
+// assign new tickets to free IT staff
 function tryAssignNewTicket($connection, $ticketId)
 {
     $itEmail = findFreeIT($connection);
@@ -70,7 +70,7 @@ function tryAssignNewTicket($connection, $ticketId)
     return null;
 }
 
-// When IT staff is free, give them the oldest ticket on hold
+// start with the oldest ticket on hold
 function tryAssignPendingTicket($connection, $itEmail)
 {
     $query = "SELECT is_busy FROM users WHERE email='$itEmail' AND role='IT'";
@@ -90,7 +90,7 @@ function tryAssignPendingTicket($connection, $itEmail)
     }
 }
 
-// Free an IT staff member after closing a ticket
+// Free an IT staff  after closing ticket
 function freeITStaff($connection, $itEmail)
 {
     $query = "UPDATE users SET is_busy=0 WHERE email='$itEmail'";

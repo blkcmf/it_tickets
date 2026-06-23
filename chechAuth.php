@@ -13,7 +13,6 @@ $user = mysqli_fetch_array($result);
 
 if ($user && verifyPassword($inputPass, $user['pass'])) {
 
-    // Fix old plain text passwords automatically
     if ($inputPass == $user['pass']) {
         upgradePassword($connection, $login, $inputPass);
         trace("Password upgraded to md5 for $login");

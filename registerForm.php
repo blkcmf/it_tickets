@@ -9,9 +9,7 @@
 <body>
     <div class="page">
         <div class="card card-narrow">
-            <div class="logo">
-                <div class="logo-icon">🎫</div>
-            </div>
+           
             <h2>Create Account</h2>
             <p class="subtitle">Register as an employee to submit IT tickets</p>
 
