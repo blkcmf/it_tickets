@@ -1,0 +1,60 @@
+Script de présentation du système de tickets IT
+
+Bonjour à tous,
+
+Aujourd’hui, je vais vous présenter notre projet de système de tickets IT. Ce projet est conçu pour aider les employés à signaler facilement les problèmes informatiques et permettre au personnel IT de gérer et de résoudre ces demandes de manière organisée.
+
+L’objectif principal de ce système est de rendre la communication entre les employés et le service informatique simple, rapide et claire. Les employés peuvent soumettre des tickets pour des problèmes tels que les problèmes réseau, les problèmes d’imprimante, les problèmes de mot de passe ou les erreurs logicielles. Le personnel IT peut ensuite afficher, attribuer, mettre à jour et clôturer ces tickets.
+
+Le projet possède une interface simple et conviviale. Il comprend des pages pour la connexion, l’inscription, la soumission des tickets, la consultation des tickets, le suivi de l’historique des tickets et la gestion des tâches assignées.
+
+Fonctions principales du projet
+
+1. Connexion et inscription des utilisateurs
+Le système permet aux utilisateurs de s’inscrire en tant qu’employés et de se connecter avec leur adresse e-mail et leur mot de passe. Cela est important car cela contrôle l’accès aux bonnes pages et fonctionnalités.
+
+2. Soumission d’un ticket
+Les employés peuvent créer de nouveaux tickets en entrant un titre, une catégorie, une description et éventuellement une capture d’écran. Cela aide l’équipe IT à mieux comprendre le problème.
+
+3. Voir mes tickets
+Les employés peuvent voir tous leurs tickets actifs en un seul endroit. Ils peuvent suivre l’état de chaque ticket et l’ouvrir pour voir plus de détails.
+
+4. Attribuer un ticket au personnel IT
+Lorsqu’un nouveau ticket est soumis, le système essaie de l’attribuer à un membre du personnel IT disponible. Cela aide à répartir la charge de travail de manière équitable.
+
+5. Mettre à jour le statut du ticket
+Le personnel IT peut mettre à jour l’avancement d’un ticket et ajouter des notes. Cela permet à l’équipe de suivre ce qui a été fait et ce qui doit encore être pris en charge.
+
+6. Fermer un ticket
+Lorsque le problème est résolu, le personnel IT peut fermer le ticket. Une fois fermé, le ticket est marqué comme résolu et le membre IT assigné devient de nouveau disponible.
+
+7. Historique des tickets
+Le système conserve un historique des tickets fermés. Cela aide l’équipe à revoir les problèmes précédents et à voir comment les problèmes ont déjà été résolus.
+
+8. Section de guide sur le tableau de bord
+Le tableau de bord comprend un guide simple pour les problèmes IT courants. Les utilisateurs peuvent sélectionner un sujet et suivre des instructions étape par étape pour essayer de résoudre eux-mêmes les problèmes les plus fréquents.
+
+Aperçu de la structure du projet
+
+Le projet est développé avec PHP et MySQL. Les fichiers sont organisés pour séparer les principales fonctionnalités :
+- pages de connexion et d’authentification
+- pages de soumission et d’affichage des tickets
+- connexion à la base de données et fonctions utilitaires
+- style de l’interface
+
+Fonctions importantes dans le code
+
+Le système utilise plusieurs fonctions importantes pour gérer le flux des tickets.
+
+- **hashPassword()** : cette fonction transforme un mot de passe en une valeur hachée pour le stockage.
+- **verifyPassword()** : cette fonction vérifie si le mot de passe saisi correspond au mot de passe enregistré.
+- **workStatusLabel()** : cette fonction transforme les valeurs internes de statut de travail en libellés plus simples pour l’utilisateur.
+- **findFreeIT()** : cette fonction recherche un membre du personnel IT disponible pour attribuer un ticket.
+- **assignTicket()** : cette fonction attribue un ticket à un membre spécifique du personnel IT et met à jour son statut.
+- **tryAssignNewTicket()** : cette fonction tente d’attribuer un nouveau ticket soumis à un membre IT disponible.
+- **tryAssignPendingTicket()** : cette fonction donne au personnel IT disponible le prochain ticket en attente.
+- **freeITStaff()** : cette fonction marque à nouveau un membre du personnel IT comme disponible après la clôture d’un ticket.
+
+En conclusion, ce projet est une solution pratique pour gérer les demandes de support IT. Il aide les employés à signaler rapidement les problèmes et permet au personnel IT de les traiter de manière structurée et efficace.
+
+Merci.
